@@ -21,26 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"teengad.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":240},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://teengad.gitee.io/categories/index.html">
+    <meta name="description" content="首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义">
+<meta property="og:url" content="https://teengad.gitee.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/index.html">
 <meta property="og:site_name" content="我不懂">
+<meta property="og:description" content="首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-10T16:54:36.000Z">
-<meta property="article:modified_time" content="2022-04-10T16:55:07.206Z">
+<meta property="article:published_time" content="2022-04-03T12:46:25.000Z">
+<meta property="article:modified_time" content="2022-04-10T18:42:44.719Z">
 <meta property="article:author" content="Teeng">
+<meta property="article:tag" content="log-log">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://teengad.gitee.io/categories/">
+<link rel="canonical" href="https://teengad.gitee.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://teengad.gitee.io/categories/index.html","path":"categories/index.html","title":"categories"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://teengad.gitee.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/","path":"2022/04/03/双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义/","title":"双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>categories | 我不懂
-</title>
+<title>双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义 | 我不懂</title>
   
 
 
@@ -230,41 +232,186 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
 
 
-    
-    
-    
-    <div class="post-block" lang="zh-CN"><header class="post-header">
+  
 
-<h1 class="post-title" itemprop="name headline">categories
-</h1>
 
-<div class="post-meta-container">
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://teengad.gitee.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ouyou.jpg">
+      <meta itemprop="name" content="Teeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我不懂">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义 | 我不懂">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-03 20:46:25" itemprop="dateCreated datePublished" datetime="2022-04-03T20:46:25+08:00">2022-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-11 02:42:44" itemprop="dateModified" datetime="2022-04-11T02:42:44+08:00">2022-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BB%98%E5%9B%BE/" itemprop="url" rel="index"><span itemprop="name">绘图</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body"><div class="category-all-page">
-  <div class="category-all-title">
-    目前共计 3 个分类
-  </div>
-  <div class="category-all">
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E5%9B%BE/">绘图</a><span class="category-list-count">2</span></li></ul>
-  </div>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：<span id="more"></span></p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/8b12990d6b3944d38e7de81fcb805bdf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center%20=600x200"
+alt="图 线性坐标" />
+<figcaption aria-hidden="true">图 线性坐标</figcaption>
+</figure>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/f83a503b3d5a46a2aa3cb17f351cad7c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center%20=600x200"
+alt="图 双对数坐标（log-log）" />
+<figcaption aria-hidden="true">图 双对数坐标（log-log）</figcaption>
+</figure>
+<p>一般我们为了更好观察数据特征，特意把数据画在双对数坐标下，然后分析数据的时候我们经常形象的说其在低频区域的“斜率”如何如何，高频区域的“斜率”如何如何，还有其“幅值”大小如何如何。那么这些在双对数坐标下的这种人的直观概念到底是怎么一回事呢？</p>
+<p>说是到底去问是怎么一回事，主要是我们观察到了数据在双对数坐标和线性坐标下的特征是不一样的，双对数坐标中的“斜率”还有“幅值”在线性坐标中找不到很直观的对应，那么我们平常所说的对数坐标中的“斜率”和“幅值”到底对应的线性坐标中的什么曲线特征？</p>
+<p>首先我们要理清在双对数坐标中，我们所说的“斜率”是没有看坐标轴所说的，其实我们下意识的把坐标轴当成了线性坐标，这个当然和线性代数中向量的基矢有关系，但是我想从更直观的角度去说这件事情。那么我们下意识下所说的“斜率”下的线性坐标对应的是什么呢？仔细观察一下我们会发现，这个线性坐标对应的是双对数坐标横坐标的<span
+class="math inline">\(10^{-4},10^{-3},10^{-2},10^{-1},10^{0},10^{1},10^{2}\)</span>中的指数项，即<span
+class="math inline">\(-4,-3,-2,-1,0,1,2\)</span>，然后纵坐标<span
+class="math inline">\(10^{-5},10^{0},10^{5}\)</span>，对应的线性坐标是<span
+class="math inline">\(-5,0,5\)</span>，他们之间的关系是log的。以10为底的指数实际上为真实数据的值（设为<span
+class="math inline">\(x_{real},y_{real}\)</span>，真实线性坐标下的斜率和幅值设为<span
+class="math inline">\(k_{real\_linear},b_{real\_linear}\)</span>），而其指数我们可以看成在双对数下的线性坐标（“斜率”意义下的线性坐标，在线性代数中相当于我们替换了矢量的基矢）（设为<span
+class="math inline">\(x_{\log\_linear},y_{\log\_linear}\)</span>，而“斜率”为<span
+class="math inline">\(k_{\log\_linear},b_{\log\_linear}\)</span>）。则上述变量之间的关系可以表示如下：</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+x_{\log\_linear}&amp;=\log(x_{real})\\
+y_{\log\_linear}&amp;=\log(y_{real})\\
+y_{\log\_linear}&amp;=k_{\log\_linear}x_{\log\_linear}+b_{\log\_linear}\\
+\Rightarrow
+\log(y_{real})&amp;=k_{\log\_linear}\log(x_{real})+\log10^{b_{\log\_linear}}\\
+\Rightarrow
+\log(y_{real})&amp;=\log(x_{real})^{k_{\log\_linear}}+\log10^{b_{\log\_linear}}\\
+\Rightarrow
+\log(y_{real})&amp;=\log((x_{real})^{k_{\log\_linear}}10^{b_{\log\_linear}})\\
+\Rightarrow
+y_{real}&amp;=(x_{real})^{k_{\log\_linear}}10^{b_{\log\_linear}}
+\end{aligned}
+\end{equation}
+\]</span></p>
+<p>通过上述的公式推导，我们可以很清楚的知道，在双对数坐标中我们所直观看到的“斜率（<span
+class="math inline">\(k_{log\_linear}\)</span>）”和“幅值（<span
+class="math inline">\(b_{log\_linear}\)</span>）”对应真线性坐标下的指数和系数（“真实斜率”）。</p>
+<p>这样我们就得到了双对数坐标下“斜率”和“幅值”的所谓实际含义。</p>
 
-      </div>
-      
-      
-      
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Teeng 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Teeng 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/log-log/" rel="tag"><i class="fa fa-tag"></i> log-log</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/05/%E5%88%A9%E7%94%A8Log%20Binning%E7%BB%98%E5%9B%BE%E6%8B%9F%E5%90%88%E5%8F%82%E6%95%B0/" rel="prev" title="利用Log Binning绘图拟合参数">
+                  <i class="fa fa-chevron-left"></i> 利用Log Binning绘图拟合参数
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/02/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>
@@ -280,11 +427,11 @@
     </label>
     <select class="lang-select" data-canonical="" aria-label="选择语言">
       
-        <option value="zh-CN" data-href="/categories/index.html" selected="">
+        <option value="zh-CN" data-href="/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/" selected="">
           简体中文
         </option>
       
-        <option value="en" data-href="/en/categories/index.html" selected="">
+        <option value="en" data-href="/en/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/" selected="">
           English
         </option>
       

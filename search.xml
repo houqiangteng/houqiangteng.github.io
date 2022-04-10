@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/04/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.<span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用Log Binning绘图拟合参数</title>
+    <url>/2022/04/05/%E5%88%A9%E7%94%A8Log%20Binning%E7%BB%98%E5%9B%BE%E6%8B%9F%E5%90%88%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<p>绘制度分布是分析网络属性的一个组成部分。该过程从获得<span
+class="math inline">\(N_{k}\)</span>开始，即度数为<span
+class="math inline">\(k\)</span>的节点数。这可以通过直接测量或模型来提供。从<span
+class="math inline">\(N_{k}\)</span>我们计算出<span
+class="math inline">\(p_{k}=N_{k}/N\)</span>。问题是，如何绘制<span
+class="math inline">\(p_{k}\)</span>以最好地提取其属性。<span id="more"></span></p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/50e5884aa2254dae982de3f875aee4b4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center"
+alt="图 度分布在不同标度坐标下的表示" />
+<figcaption aria-hidden="true">图
+度分布在不同标度坐标下的表示</figcaption>
+</figure>
+<ul>
+<li>使用log-log图</li>
+</ul>
+<p>在无标度网络中，具有一或两条链路的众多节点与少数节点共存，其中少数节点为具有数千甚至数百万链路的节点。使用线性
+k 轴压缩无数小k区域中的节点，使它们不可见。类似地，由于<span
+class="math inline">\(k=1\)</span>和大<span
+class="math inline">\(k\)</span>的<span
+class="math inline">\(p_{k}\)</span>可能存在数量级差异，如果我们在线性垂直轴上绘制<span
+class="math inline">\(p_{k}\)</span>，大<span
+class="math inline">\(k\)</span>的值将显示为零（图
+4.22a）。对数图的使用避免了这些问题。 我们可以使用10次方的对数轴（图
+4.22b），或者我们可以绘制<span class="math inline">\(\log
+k\)</span>函数的<span class="math inline">\(\log
+k\)</span>。请注意，<span class="math inline">\(p_{k}=0\)</span>或<span
+class="math inline">\(k=0\)</span>的点不会在<span
+class="math inline">\(\log - \log\)</span>图上显示，因为<span
+class="math inline">\(\log0=-\infty\)</span>。</p>
+<ul>
+<li>避免Linear Binning</li>
+</ul>
+<p>最有缺陷的方法（但在文献中经常出现）是在对数图上简单地绘制<span
+class="math inline">\(p_{k}=N_{k}/N\)</span>（图
+4.22b）。这称为线性分箱（Linear
+Binning），因为每个bin具有相同的大小<span class="math inline">\(\Delta
+k=1\)</span>。对于无标度网络，linear binning会在大<span
+class="math inline">\(k\)</span>处产生显而易见的平台，由形成水平线的大量数据点组成（图
+4.22b）。这个平台有一个简单的解释：通常我们只有一个高度节点的样本，因此在高
+<span class="math inline">\(k\)</span>区域中，我们要么有<span
+class="math inline">\(N_{k}=0\)</span>（没有具有<span
+class="math inline">\(k\)</span>度的节点），要么有<span
+class="math inline">\(N_{k}=1\)</span>（具有<span
+class="math inline">\(k\)</span>度的单个节点）。 因此，Linear
+Binning将提供<span
+class="math inline">\(p_{k}=0\)</span>（未在对数图上显示）或<span
+class="math inline">\(p_{k}=1/N\)</span>（适用于所有hubs），在<span
+class="math inline">\(p_{k}=1/N\)</span>处生成一个平台。
+这个平台会影响我们估计度指数<span
+class="math inline">\(\gamma\)</span>的能力。例如，如果我们尝试使用linear
+binning对图4.22b中所示的数据拟合幂律，则获得的<span
+class="math inline">\(\gamma\)</span>与实际值<span
+class="math inline">\(\gamma =2.5\)</span>完全不同。原因是在linear
+binning下，我们在小<span
+class="math inline">\(k\)</span>的bin中有大量节点，这使我们能够自信地在这种情况下拟合<span
+class="math inline">\(p_{k}\)</span>。在大<span
+class="math inline">\(k\)</span>的bin中，我们的节点太少，无法对<span
+class="math inline">\(p_{k}\)</span>进行适当的统计估计。相反，新出现的平台会使得拟合参数偏离。然而，正是这种高<span
+class="math inline">\(k\)</span>状态在确定<span
+class="math inline">\(\gamma\)</span>中起关键作用。增加bin大小不会解决这个问题。因此，建议避免对肥尾分布进行Linear
+binning。</p>
+<ul>
+<li>使用Logarithmic Binning</li>
+</ul>
+<p>​Logarithmic binning纠正了linear
+binning的非均匀采样。对于log-binning，我们让bin大小随程度增加，确保每个bin具有相当数量的节点。例如，我们可以选择bin大小为2的倍数，这样第一个bin的大小为<span
+class="math inline">\(b_{0}=1\)</span>，包含所有<span
+class="math inline">\(k=1\)</span>的节点；第二个大小为<span
+class="math inline">\(b_{1}=2\)</span>，包含度数<span
+class="math inline">\(k=2,3\)</span>的节点；第三个bin的大小为<span
+class="math inline">\(b_{2}=4\)</span>，包含度数<span
+class="math inline">\(k=4,5,6,7\)</span>的节点。通过归纳，第<span
+class="math inline">\(n\)</span>个bin的大小为<span
+class="math inline">\(2^{n-1}\)</span>，包含度数为<span
+class="math inline">\(k=2^{n-1},2^{n-1}+1,...,2^{n}-1\)</span>的节点。请注意，bin大小可以随任意增量增加，<span
+class="math inline">\(b_{n}=c^{n}\)</span>，其中<span
+class="math inline">\(c&gt;1\)</span>。度分布由<span
+class="math inline">\(p_{\left \langle k \right
+\rangle}=N_{n}/\left(Nb_{n} \right)\)</span>给出，其中<span
+class="math inline">\(N_{n}\)</span>是在大小为<span
+class="math inline">\(b_{n}\)</span>的<span
+class="math inline">\(bin_{n}\)</span>中找到的节点数，<span
+class="math inline">\(\left \langle k_{n} \right
+\rangle\)</span>是bin<span
+class="math inline">\(b_{n}\)</span>中节点的平均度数。
+图4.22c显示了logarithmic binning的<span
+class="math inline">\(p_{k}\)</span>。请注意，现在扩展到高<span
+class="math inline">\(k\)</span>平台，其本来在linear
+binning下不可见。因此，logarithmic
+binning也可以从稀有的高度节点中提取有用信息。由于上述操作相当于把每个bin中的度的<span
+class="math inline">\(p_{k}\)</span>进行平均，所以最终在高<span
+class="math inline">\(k\)</span>的bin中有些<span
+class="math inline">\(p_{k}\)</span>是0，所以平均之后的值要小于<span
+class="math inline">\(p_{k}=1/N\)</span>，这是要值得注意的。</p>
+<ul>
+<li>使用累积分布（Cumulative Distribution）</li>
+</ul>
+<p>​从<span
+class="math inline">\(p_{k}\)</span>的尾部提取信息的另一种方法是绘制互补累积分布，
+<span class="math display">\[
+\begin{equation}
+P_{k}=\sum^{\infty}_{q=k+1}p_{q},
+\end{equation}
+\]</span> 这再次增强了高k区域的统计显著性。 如果<span
+class="math inline">\(p_{k}\)</span>遵循幂律<span
+class="math inline">\(p_{k}=k^{-\gamma}\)</span>，则累积分布缩放为 <span
+class="math display">\[
+\begin{equation}
+p_{k}\sim k^{-\gamma+1}.
+\end{equation}
+\]</span> 累积分布再次消除了linear binning观察到的平台,并扩展了区域（图
+4.22d），从而可以更准确地估计度指数。</p>
+<ul>
+<li>注意</li>
+</ul>
+<ol type="1">
+<li>当横坐标并非为离散的变量时，需要先把连续变量粗粒化，然后利用每个格子代替k值进行上述操作；</li>
+<li>但是Logarithmic
+Binning中，横坐标取的是线性区间的中间值，而画图时为对数区间，所以这个上面可能需要有所商量，即有可能取对数区间最优；</li>
+<li>特别值得注意的是，当我们把上述log-binning之后的区间画在<span
+class="math inline">\(\log\)</span>图中的时候，其点的横坐标并非是等间隔均匀分布的，当格子的下标比较大的时候，横坐标才会逼近等间隔分布。用度分布的例子，证明如下：
+log-binning的格子为： <span class="math display">\[
+\begin{equation}
+k=1,k=2,3,k=4,5,6,7,...,k=2^{n-1},2^{n-1}+1,...,2^{n}-1
+\end{equation}
+\]</span> 平均度<span class="math inline">\(\left \langle k_{n} \right
+\rangle\)</span>的分布为： <span class="math display">\[
+\begin{equation}
+\begin{aligned}
+\left \langle k_{n} \right \rangle&amp;=\frac{S_{n-1}+1+S_{n}}{2}\\
+&amp;=\frac{2^{n-1}-1+1+2^{n}-1}{2}\\
+&amp;=3\times2^{n-2}-\frac{1}{2}
+\end{aligned}
+\end{equation}
+\]</span> 当<span
+class="math inline">\(n\rightarrow\infty\)</span>时，<span
+class="math inline">\(\left\langle k_{n} \right\rangle\)</span>在<span
+class="math inline">\(\log\)</span>坐标下的值为： <span
+class="math display">\[
+\begin{equation}
+\begin{aligned}
+\left\langle k_{n} \right\rangle_{log}&amp;=\log\left( \left\langle
+k_{n} \right\rangle \right) \\
+&amp;=\log\left( 3\times2^{n-2}-\frac{1}{2} \right)\\
+&amp;\approx \log\left( 3\times2^{n-2} \right)\\
+&amp;\approx (n-2)\log\left( 2 \right)+ \log\left( 3\right)\\
+&amp;\approx n\log\left( 2 \right)+ \log\left( \frac{3}{4}\right)\\
+&amp;\approx n\log\left( 2 \right)
+\end{aligned}
+\end{equation}
+\]</span></li>
+</ol>
+<p>即在<span class="math inline">\(\log\)</span>坐标下，<span
+class="math inline">\(\left\langle k_{n}
+\right\rangle\)</span>的间距为<span
+class="math inline">\(\log(2)\)</span>。
+另外观察上述推导过程，最终的间距只与选择的比值<span
+class="math inline">\(q\)</span>有关，即间距为<span
+class="math inline">\(\log(q)\)</span>。下面对一般情况下的离散变量进行证明，假设初值<span
+class="math inline">\(b_{1}=a_{1}\)</span>，比值<span
+class="math inline">\(q&gt;1\)</span>，则前<span
+class="math inline">\(n\)</span>项的求和为： <span
+class="math display">\[
+\begin{equation}
+S_{n}=\frac{a_{1}(1-q^{n})}{1-q}
+\end{equation}
+\]</span> 平均度<span class="math inline">\(\left \langle k_{n} \right
+\rangle\)</span>的分布为： <span class="math display">\[
+\begin{equation}
+\begin{aligned}
+\left \langle k_{n} \right \rangle&amp;=\frac{S_{n-1}+1+S_{n}}{2}\\
+&amp;=\frac{(1+q)a_{1}q^{n-1}}{2(q-1)}+\frac{a_{1}}{1-q}+\frac{1}{2}\\
+&amp;\approx \frac{(1+q)a_{1}q^{n-1}}{2(q-1)}
+\end{aligned}
+\end{equation}
+\]</span></p>
+<p>当<span class="math inline">\(n\rightarrow\infty\)</span>时，<span
+class="math inline">\(\left\langle k_{n} \right\rangle\)</span>在<span
+class="math inline">\(\log\)</span>坐标下的值为： <span
+class="math display">\[
+\begin{equation}
+\begin{aligned}
+\left\langle k_{n} \right\rangle_{log}&amp;=\log\left( \left\langle
+k_{n} \right\rangle \right)\\
+&amp;=\log\left(\frac{(1+q)a_{1}q^{n-1}}{2(q-1)} \right)\\
+&amp;=\log(\frac{(q+1)a_{1}}{2(q-1)q})+n\log(q)\\
+&amp;\approx n\log(q)
+\end{aligned}
+\end{equation}
+\]</span> 证毕。</p>
+<ul>
+<li>附录</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%计算log-binning</span><br><span class="line">function [edges_exponent,N_hist_exponent]=LogBinning(N_hist,edges,first_bin,exponent_base)</span><br><span class="line">%N_hist为数据，edges为横坐标（其length比N_hist多1），first_bin为横坐标第一个格子大小；</span><br><span class="line">%exponent_base为比值；</span><br><span class="line">%edges_exponent为横坐标，N_hist_exponent为纵坐标值；</span><br><span class="line"></span><br><span class="line">first_bin=1;</span><br><span class="line">exponent_base=2;</span><br><span class="line"></span><br><span class="line">upper_limit=first_bin;    %代表总的格子数；</span><br><span class="line">length_edges=length(edges);</span><br><span class="line">count_exponent=1;</span><br><span class="line">edges_exponent(1)=(edges(upper_limit+1)+edges(1))/2;</span><br><span class="line">N_hist_exponent(1)=sum(N_hist(1:upper_limit))/upper_limit;</span><br><span class="line">while (upper_limit+exponent_base^count_exponent+1)&lt;=length_edges</span><br><span class="line">    upper_limit1=upper_limit+exponent_base^count_exponent;</span><br><span class="line">    count_exponent=count_exponent+1;</span><br><span class="line">    edges_exponent(count_exponent)=(edges(upper_limit1+1)+edges(upper_limit+1))/2;</span><br><span class="line">    N_hist_exponent(count_exponent)=sum(N_hist((upper_limit+1):upper_limit1))/(upper_limit1-upper_limit);</span><br><span class="line">    upper_limit=upper_limit1;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">upper_limit1=upper_limit+exponent_base^count_exponent;</span><br><span class="line">count_exponent=count_exponent+1;</span><br><span class="line">edges_exponent(count_exponent)=(2*edges(upper_limit+1)+(upper_limit1-upper_limit)*(edges(3)-edges(2)))/2;</span><br><span class="line">N_hist_exponent(count_exponent)=sum(N_hist((upper_limit+1):end))/(upper_limit1-upper_limit);</span><br><span class="line">upper_limit=upper_limit1;</span><br><span class="line"></span><br><span class="line">edges_exponent=edges_exponent&#x27;;</span><br><span class="line">N_hist_exponent=N_hist_exponent&#x27;;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>其中作为在<span
+class="math inline">\(\log\)</span>横坐标下的edges_exponent值的间隔为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">log10(edges_exponent(2:end))-log10(edges_exponent(1:(end-1)))</span><br><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">    0.6021    0.3979    0.3424    0.3203    0.3104    0.3056    0.3033</span><br></pre></td></tr></table></figure>
+<p>由于其比值选的也是<span
+class="math inline">\(2\)</span>，所以最终的间距逐渐趋近为<span
+class="math inline">\(\log(2)=0.30103\)</span>。 <img
+src="https://img-blog.csdnimg.cn/87249ef39f674b9e8bbdd091c41d2ad9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_12,color_FFFFFF,t_70,g_se,x_16#pic_center%20=300x300"
+alt="图 取线性横坐标中值" /></p>
+<ul>
+<li>注意</li>
+</ul>
+<p>如果横坐标为连续变量，则图中的前几个点（从左数）会往上翘起来，并且大部分点相对理论值会偏右（或上）。这是因为，此时由于对连续变量进行hist的时候，会取区间的整个数值的平均值，所以当这个区间内的前后有数值上的单调性（如果左高右低），此值会被区间内左侧的值拉高，高于区间中间位置的值的大小。解决的办法是把hist的区间数取大，进而减小区间的大小，减小拉高的高度。但是值得注意的是，这个区间也不能取的太小，太小的话可能会因为涨落的原因，使数据点低垂下去，或者翘起来。所以需要根据数据的具体情况进行调整。
+其实这也一定程度上显露了区间位置被选在线性区间中间这个操作的缺点。当我们取横坐标为<span
+class="math inline">\(\log\)</span>之后的值的平均值的时候，可以克服这个缺点：</p>
+<p><img
+src="https://img-blog.csdnimg.cn/5d7c69cc93ff4d8bb024f22bb7663cf5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_12,color_FFFFFF,t_70,g_se,x_16#pic_center%20=300x300"
+alt="图 取对数横坐标中值" />
+另外上面点在横坐标上的分布其实也不均匀。下面对一般情况下的离散变量（连续变量可以通过粗粒化转化为离散变量）进行证明，假设初值<span
+class="math inline">\(b_{1}=a_{1}\)</span>，比值<span
+class="math inline">\(q&gt;1\)</span>，则前<span
+class="math inline">\(n\)</span>项的求和为： <span
+class="math display">\[
+\begin{equation}
+S_{n}=\frac{a_{1}(1-q^{n})}{1-q}
+\end{equation}
+\]</span></p>
+<p>当<span class="math inline">\(n\rightarrow\infty\)</span>，且<span
+class="math inline">\(q&gt;1\)</span>时，<span
+class="math inline">\(\left\langle k_{n} \right\rangle\)</span>在<span
+class="math inline">\(\log\)</span>坐标下的值为： <span
+class="math display">\[
+\begin{equation}
+\begin{aligned}
+\left\langle k_{n}
+\right\rangle_{log}&amp;=\frac{\log(S_{n-1})+\log(S_{n})}{2}\\
+&amp;=\frac{\log(S_{n-1}S_{n})}{2}\\
+&amp;=\frac{\log(\frac{a_{1}^{2}(1-q^{n-1})(1-q^{n})}{(1-q)^{2}})}{2}\\
+&amp;\approx \frac{\log(\frac{a_{1}^{2}q^{2n}}{q(1-q)^{2}})}{2}\\
+&amp;\approx \frac{2n\log(q)+\log(\frac{a_{1}^{2}}{q(1-q)^{2}})}{2}\\
+&amp;\approx n\log(q)+\frac{1}{2}\log(\frac{a_{1}^{2}}{q(1-q)^{2}})\\
+&amp;\approx n\log(q)\\
+\end{aligned}
+\end{equation}
+\]</span> 比较之前得到的在线性区间下的结果，当<span
+class="math inline">\(n\rightarrow\infty\)</span>时，两者一致。
+另外当<span class="math inline">\(a_{1}\)</span>较小，<span
+class="math inline">\(q\)</span>较大时，点在横坐标上的分布会比较均匀。</p>
+<p>代码为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%计算log-binning，输出线性坐标下的横坐标和纵坐标；</span><br><span class="line">function [edges_exponent,N_hist_exponent]=LogBinning(N_hist,edges,first_bin,exponent_base)</span><br><span class="line">%N_hist为数据，edges为横坐标（其length比N_hist多1），first_bin为横坐标第一个格子大小；</span><br><span class="line">%exponent_base为比值；</span><br><span class="line">%edges_exponent为横坐标，N_hist_exponent为纵坐标值；</span><br><span class="line"></span><br><span class="line">first_bin=1;</span><br><span class="line">exponent_base=2;</span><br><span class="line"></span><br><span class="line">upper_limit=first_bin;    %代表总的格子数；</span><br><span class="line">length_edges=length(edges);</span><br><span class="line">count_exponent=1;</span><br><span class="line">edges_exponent(1)=10^((log10(edges(upper_limit+1))+log10(edges(1)))/2);</span><br><span class="line">N_hist_exponent(1)=sum(N_hist(1:upper_limit))/upper_limit;</span><br><span class="line">while (upper_limit+exponent_base^count_exponent+1)&lt;=length_edges</span><br><span class="line">    upper_limit1=upper_limit+exponent_base^count_exponent;</span><br><span class="line">    count_exponent=count_exponent+1;</span><br><span class="line">    edges_exponent(count_exponent)=10^((log10(edges(upper_limit1+1))+log10(edges(upper_limit+1)))/2);    %注意横坐标需要取对数坐标下的中间值，求完之后为了防止混淆，再退化为线性坐标；</span><br><span class="line">    N_hist_exponent(count_exponent)=sum(N_hist((upper_limit+1):upper_limit1))/(upper_limit1-upper_limit);</span><br><span class="line">    upper_limit=upper_limit1;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 注意此时超出范围，需要额外处理；</span><br><span class="line">upper_limit1=upper_limit+exponent_base^count_exponent;</span><br><span class="line">count_exponent=count_exponent+1;</span><br><span class="line">edges_exponent(count_exponent)=10^((log10(edges(upper_limit+1))+log10(edges(upper_limit+1)+(upper_limit1-upper_limit)*(edges(3)-edges(2))))/2);</span><br><span class="line">N_hist_exponent(count_exponent)=sum(N_hist((upper_limit+1):end))/(upper_limit1-upper_limit);</span><br><span class="line">upper_limit=upper_limit1;</span><br><span class="line"></span><br><span class="line">edges_exponent=edges_exponent&#x27;;</span><br><span class="line">N_hist_exponent=N_hist_exponent&#x27;;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>参考文献：barabasi，network science，chapter4.</p>
+<p>​</p>
+<p>​</p>
+<p>​​​​​​</p>
+]]></content>
+      <categories>
+        <category>绘图</category>
+      </categories>
+      <tags>
+        <tag>Log Binning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数学算术中无穷小量的不完备性</title>
+    <url>/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/</url>
+    <content><![CDATA[<p>假设我们有一组微分之后的结果： <span class="math display">\[
+a+h \tag{1}
+\]</span><br />
+其中<span class="math inline">\(a\)</span>是实数，<span
+class="math inline">\(h\)</span>为无穷小量，则一般情况下我们可以忽略掉h使其变为：<span id="more"></span>
+<span class="math display">\[
+a+h\rightarrow a\tag{2}
+\]</span></p>
+<ol type="1">
+<li>当我们拿着上述结果<span
+class="math inline">\((2)\)</span>交给另一个人去计算： <span
+class="math display">\[
+\frac{a-a}{h}\tag{3}
+\]</span><br />
+时，<span class="math inline">\(h\)</span>为无穷小量，第一个<span
+class="math inline">\(a\)</span>为前式得到的<span
+class="math inline">\(a\)</span>，则上式可以简化为： <span
+class="math display">\[
+\frac{a-a}{h}=\frac{0}{h}\rightarrow0\tag{4}
+\]</span></li>
+<li>当我们拿着化简之前的结果<span
+class="math inline">\((1)\)</span>式交给别人去计算时，<span
+class="math inline">\((3)\)</span>式可简化为： <span
+class="math display">\[
+\frac{a+h-a}{h}=\frac{h}{h}\rightarrow1\tag{5}
+\]</span> 显然<span class="math inline">\((3)\)</span>和<span
+class="math inline">\((5)\)</span>式进行着相同的计算，在不同的取值近似下得出了完全不相同的结果，这是无穷小量带来的算术矛盾。需要验证在现实中我们是否经常遇到这种矛盾，这如同一个地雷一样藏在某处。</li>
+</ol>
+<p>​</p>
+]]></content>
+      <categories>
+        <category>math</category>
+      </categories>
+      <tags>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义</title>
+    <url>/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/</url>
+    <content><![CDATA[<p>首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：<span id="more"></span></p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/8b12990d6b3944d38e7de81fcb805bdf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center%20=600x200"
+alt="图 线性坐标" />
+<figcaption aria-hidden="true">图 线性坐标</figcaption>
+</figure>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/f83a503b3d5a46a2aa3cb17f351cad7c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center%20=600x200"
+alt="图 双对数坐标（log-log）" />
+<figcaption aria-hidden="true">图 双对数坐标（log-log）</figcaption>
+</figure>
+<p>一般我们为了更好观察数据特征，特意把数据画在双对数坐标下，然后分析数据的时候我们经常形象的说其在低频区域的“斜率”如何如何，高频区域的“斜率”如何如何，还有其“幅值”大小如何如何。那么这些在双对数坐标下的这种人的直观概念到底是怎么一回事呢？</p>
+<p>说是到底去问是怎么一回事，主要是我们观察到了数据在双对数坐标和线性坐标下的特征是不一样的，双对数坐标中的“斜率”还有“幅值”在线性坐标中找不到很直观的对应，那么我们平常所说的对数坐标中的“斜率”和“幅值”到底对应的线性坐标中的什么曲线特征？</p>
+<p>首先我们要理清在双对数坐标中，我们所说的“斜率”是没有看坐标轴所说的，其实我们下意识的把坐标轴当成了线性坐标，这个当然和线性代数中向量的基矢有关系，但是我想从更直观的角度去说这件事情。那么我们下意识下所说的“斜率”下的线性坐标对应的是什么呢？仔细观察一下我们会发现，这个线性坐标对应的是双对数坐标横坐标的<span
+class="math inline">\(10^{-4},10^{-3},10^{-2},10^{-1},10^{0},10^{1},10^{2}\)</span>中的指数项，即<span
+class="math inline">\(-4,-3,-2,-1,0,1,2\)</span>，然后纵坐标<span
+class="math inline">\(10^{-5},10^{0},10^{5}\)</span>，对应的线性坐标是<span
+class="math inline">\(-5,0,5\)</span>，他们之间的关系是log的。以10为底的指数实际上为真实数据的值（设为<span
+class="math inline">\(x_{real},y_{real}\)</span>，真实线性坐标下的斜率和幅值设为<span
+class="math inline">\(k_{real\_linear},b_{real\_linear}\)</span>），而其指数我们可以看成在双对数下的线性坐标（“斜率”意义下的线性坐标，在线性代数中相当于我们替换了矢量的基矢）（设为<span
+class="math inline">\(x_{\log\_linear},y_{\log\_linear}\)</span>，而“斜率”为<span
+class="math inline">\(k_{\log\_linear},b_{\log\_linear}\)</span>）。则上述变量之间的关系可以表示如下：</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+x_{\log\_linear}&amp;=\log(x_{real})\\
+y_{\log\_linear}&amp;=\log(y_{real})\\
+y_{\log\_linear}&amp;=k_{\log\_linear}x_{\log\_linear}+b_{\log\_linear}\\
+\Rightarrow
+\log(y_{real})&amp;=k_{\log\_linear}\log(x_{real})+\log10^{b_{\log\_linear}}\\
+\Rightarrow
+\log(y_{real})&amp;=\log(x_{real})^{k_{\log\_linear}}+\log10^{b_{\log\_linear}}\\
+\Rightarrow
+\log(y_{real})&amp;=\log((x_{real})^{k_{\log\_linear}}10^{b_{\log\_linear}})\\
+\Rightarrow
+y_{real}&amp;=(x_{real})^{k_{\log\_linear}}10^{b_{\log\_linear}}
+\end{aligned}
+\end{equation}
+\]</span></p>
+<p>通过上述的公式推导，我们可以很清楚的知道，在双对数坐标中我们所直观看到的“斜率（<span
+class="math inline">\(k_{log\_linear}\)</span>）”和“幅值（<span
+class="math inline">\(b_{log\_linear}\)</span>）”对应真线性坐标下的指数和系数（“真实斜率”）。</p>
+<p>这样我们就得到了双对数坐标下“斜率”和“幅值”的所谓实际含义。</p>
+]]></content>
+      <categories>
+        <category>绘图</category>
+      </categories>
+      <tags>
+        <tag>log-log</tag>
+      </tags>
+  </entry>
+</search>
