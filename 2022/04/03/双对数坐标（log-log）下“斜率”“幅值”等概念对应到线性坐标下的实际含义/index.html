@@ -19,12 +19,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"teengad.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":240},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"teengad.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":240},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义">
-<meta property="og:url" content="https://teengad.gitee.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/index.html">
+<meta property="og:url" content="https://teengad.github.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/index.html">
 <meta property="og:site_name" content="我不懂">
 <meta property="og:description" content="首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：">
 <meta property="og:locale" content="zh_CN">
@@ -35,11 +35,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://teengad.gitee.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/">
+<link rel="canonical" href="https://teengad.github.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://teengad.gitee.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/","path":"2022/04/03/双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义/","title":"双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://teengad.github.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/","path":"2022/04/03/双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义/","title":"双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义 | 我不懂</title>
@@ -216,7 +216,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://teengad.gitee.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/">
+    <link itemprop="mainEntityOfPage" href="https://teengad.github.io/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ouyou.jpg">
