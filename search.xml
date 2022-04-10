@@ -1,40 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/04/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.<span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义</title>
     <url>/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/</url>
     <content><![CDATA[<p>首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：<span id="more"></span></p>
@@ -91,43 +57,37 @@ class="math inline">\(b_{log\_linear}\)</span>）”对应真线性坐标下的�
       </tags>
   </entry>
   <entry>
-    <title>数学算术中无穷小量的不完备性</title>
-    <url>/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/</url>
-    <content><![CDATA[<p>假设我们有一组微分之后的结果： <span class="math display">\[
-a+h \tag{1}
-\]</span><br />
-其中<span class="math inline">\(a\)</span>是实数，<span
-class="math inline">\(h\)</span>为无穷小量，则一般情况下我们可以忽略掉h使其变为：<span id="more"></span>
-<span class="math display">\[
-a+h\rightarrow a\tag{2}
-\]</span></p>
-<ol type="1">
-<li>当我们拿着上述结果<span
-class="math inline">\((2)\)</span>交给另一个人去计算： <span
-class="math display">\[
-\frac{a-a}{h}\tag{3}
-\]</span><br />
-时，<span class="math inline">\(h\)</span>为无穷小量，第一个<span
-class="math inline">\(a\)</span>为前式得到的<span
-class="math inline">\(a\)</span>，则上式可以简化为： <span
-class="math display">\[
-\frac{a-a}{h}=\frac{0}{h}\rightarrow0\tag{4}
-\]</span></li>
-<li>当我们拿着化简之前的结果<span
-class="math inline">\((1)\)</span>式交给别人去计算时，<span
-class="math inline">\((3)\)</span>式可简化为： <span
-class="math display">\[
-\frac{a+h-a}{h}=\frac{h}{h}\rightarrow1\tag{5}
-\]</span> 显然<span class="math inline">\((3)\)</span>和<span
-class="math inline">\((5)\)</span>式进行着相同的计算，在不同的取值近似下得出了完全不相同的结果，这是无穷小量带来的算术矛盾。需要验证在现实中我们是否经常遇到这种矛盾，这如同一个隐患一样藏在某处。</li>
-</ol>
-<p>​</p>
+    <title>Hello World</title>
+    <url>/2022/04/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.<span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
-        <category>math</category>
+        <category>markdown</category>
       </categories>
       <tags>
-        <tag>math</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -387,6 +347,46 @@ class="math inline">\(q\)</span>较大时，点在横坐标上的分布会比较
       </categories>
       <tags>
         <tag>Log Binning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数学算术中无穷小量的不完备性</title>
+    <url>/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/</url>
+    <content><![CDATA[<p>假设我们有一组微分之后的结果： <span class="math display">\[
+a+h \tag{1}
+\]</span><br />
+其中<span class="math inline">\(a\)</span>是实数，<span
+class="math inline">\(h\)</span>为无穷小量，则一般情况下我们可以忽略掉h使其变为：<span id="more"></span>
+<span class="math display">\[
+a+h\rightarrow a\tag{2}
+\]</span></p>
+<ol type="1">
+<li>当我们拿着上述结果<span
+class="math inline">\((2)\)</span>交给另一个人去计算： <span
+class="math display">\[
+\frac{a-a}{h}\tag{3}
+\]</span><br />
+时，<span class="math inline">\(h\)</span>为无穷小量，第一个<span
+class="math inline">\(a\)</span>为前式得到的<span
+class="math inline">\(a\)</span>，则上式可以简化为： <span
+class="math display">\[
+\frac{a-a}{h}=\frac{0}{h}\rightarrow0\tag{4}
+\]</span></li>
+<li>当我们拿着化简之前的结果<span
+class="math inline">\((1)\)</span>式交给别人去计算时，<span
+class="math inline">\((3)\)</span>式可简化为： <span
+class="math display">\[
+\frac{a+h-a}{h}=\frac{h}{h}\rightarrow1\tag{5}
+\]</span> 显然<span class="math inline">\((3)\)</span>和<span
+class="math inline">\((5)\)</span>式进行着相同的计算，在不同的取值近似下得出了完全不相同的结果，这是无穷小量带来的算术矛盾。需要验证在现实中我们是否经常遇到这种矛盾，这如同一个隐患一样藏在某处。</li>
+</ol>
+<p>​</p>
+]]></content>
+      <categories>
+        <category>math</category>
+      </categories>
+      <tags>
+        <tag>math</tag>
       </tags>
   </entry>
 </search>
