@@ -35,62 +35,6 @@ href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
       </tags>
   </entry>
   <entry>
-    <title>双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义</title>
-    <url>/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/</url>
-    <content><![CDATA[<p>首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：<span id="more"></span></p>
-<figure>
-<img
-src="https://img-blog.csdnimg.cn/8b12990d6b3944d38e7de81fcb805bdf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center%20=600x200"
-alt="图 线性坐标" />
-<figcaption aria-hidden="true">图 线性坐标</figcaption>
-</figure>
-<figure>
-<img
-src="https://img-blog.csdnimg.cn/f83a503b3d5a46a2aa3cb17f351cad7c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center%20=600x200"
-alt="图 双对数坐标（log-log）" />
-<figcaption aria-hidden="true">图 双对数坐标（log-log）</figcaption>
-</figure>
-<p>一般我们为了更好观察数据特征，特意把数据画在双对数坐标下，然后分析数据的时候我们经常形象的说其在低频区域的“斜率”如何如何，高频区域的“斜率”如何如何，还有其“幅值”大小如何如何。那么这些在双对数坐标下的这种人的直观概念到底是怎么一回事呢？</p>
-<p>说是到底去问是怎么一回事，主要是我们观察到了数据在双对数坐标和线性坐标下的特征是不一样的，双对数坐标中的“斜率”还有“幅值”在线性坐标中找不到很直观的对应，那么我们平常所说的对数坐标中的“斜率”和“幅值”到底对应的线性坐标中的什么曲线特征？</p>
-<p>首先我们要理清在双对数坐标中，我们所说的“斜率”是没有看坐标轴所说的，其实我们下意识的把坐标轴当成了线性坐标，这个当然和线性代数中向量的基矢有关系，但是我想从更直观的角度去说这件事情。那么我们下意识下所说的“斜率”下的线性坐标对应的是什么呢？仔细观察一下我们会发现，这个线性坐标对应的是双对数坐标横坐标的<span
-class="math inline">\(10^{-4},10^{-3},10^{-2},10^{-1},10^{0},10^{1},10^{2}\)</span>中的指数项，即<span
-class="math inline">\(-4,-3,-2,-1,0,1,2\)</span>，然后纵坐标<span
-class="math inline">\(10^{-5},10^{0},10^{5}\)</span>，对应的线性坐标是<span
-class="math inline">\(-5,0,5\)</span>，他们之间的关系是log的。以10为底的指数实际上为真实数据的值（设为<span
-class="math inline">\(x_{real},y_{real}\)</span>，真实线性坐标下的斜率和幅值设为<span
-class="math inline">\(k_{real\_linear},b_{real\_linear}\)</span>），而其指数我们可以看成在双对数下的线性坐标（“斜率”意义下的线性坐标，在线性代数中相当于我们替换了矢量的基矢）（设为<span
-class="math inline">\(x_{\log\_linear},y_{\log\_linear}\)</span>，而“斜率”为<span
-class="math inline">\(k_{\log\_linear},b_{\log\_linear}\)</span>）。则上述变量之间的关系可以表示如下：</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{aligned}
-x_{\log\_linear}&amp;=\log(x_{real})\\
-y_{\log\_linear}&amp;=\log(y_{real})\\
-y_{\log\_linear}&amp;=k_{\log\_linear}x_{\log\_linear}+b_{\log\_linear}\\
-\Rightarrow
-\log(y_{real})&amp;=k_{\log\_linear}\log(x_{real})+\log10^{b_{\log\_linear}}\\
-\Rightarrow
-\log(y_{real})&amp;=\log(x_{real})^{k_{\log\_linear}}+\log10^{b_{\log\_linear}}\\
-\Rightarrow
-\log(y_{real})&amp;=\log((x_{real})^{k_{\log\_linear}}10^{b_{\log\_linear}})\\
-\Rightarrow
-y_{real}&amp;=(x_{real})^{k_{\log\_linear}}10^{b_{\log\_linear}}
-\end{aligned}
-\end{equation}
-\]</span></p>
-<p>通过上述的公式推导，我们可以很清楚的知道，在双对数坐标中我们所直观看到的“斜率（<span
-class="math inline">\(k_{log\_linear}\)</span>）”和“幅值（<span
-class="math inline">\(b_{log\_linear}\)</span>）”对应真线性坐标下的指数和系数（“真实斜率”）。</p>
-<p>这样我们就得到了双对数坐标下“斜率”和“幅值”的所谓实际含义。</p>
-]]></content>
-      <categories>
-        <category>绘图</category>
-      </categories>
-      <tags>
-        <tag>log-log</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>利用Log Binning绘图拟合参数</title>
     <url>/2022/04/05/%E5%88%A9%E7%94%A8Log%20Binning%E7%BB%98%E5%9B%BE%E6%8B%9F%E5%90%88%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<p>绘制度分布是分析网络属性的一个组成部分。该过程从获得<span
@@ -347,6 +291,62 @@ class="math inline">\(q\)</span>较大时，点在横坐标上的分布会比较
       </categories>
       <tags>
         <tag>Log Binning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>双对数坐标（log-log）下“斜率”“幅值”等概念对应到线性坐标下的实际含义</title>
+    <url>/2022/04/03/%E5%8F%8C%E5%AF%B9%E6%95%B0%E5%9D%90%E6%A0%87%EF%BC%88log-log%EF%BC%89%E4%B8%8B%E2%80%9C%E6%96%9C%E7%8E%87%E2%80%9D%E2%80%9C%E5%B9%85%E5%80%BC%E2%80%9D%E7%AD%89%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E5%88%B0%E7%BA%BF%E6%80%A7%E5%9D%90%E6%A0%87%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%99%85%E5%90%AB%E4%B9%89/</url>
+    <content><![CDATA[<p>首先我们取同一组数据（实为一个数据的功率谱），然后分别画出其在线性坐标和双对数坐标下（loglog）下的曲线：<span id="more"></span></p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/8b12990d6b3944d38e7de81fcb805bdf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center%20=600x200"
+alt="图 线性坐标" />
+<figcaption aria-hidden="true">图 线性坐标</figcaption>
+</figure>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/f83a503b3d5a46a2aa3cb17f351cad7c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGVuZ0FkdmVudHVyZQ==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center%20=600x200"
+alt="图 双对数坐标（log-log）" />
+<figcaption aria-hidden="true">图 双对数坐标（log-log）</figcaption>
+</figure>
+<p>一般我们为了更好观察数据特征，特意把数据画在双对数坐标下，然后分析数据的时候我们经常形象的说其在低频区域的“斜率”如何如何，高频区域的“斜率”如何如何，还有其“幅值”大小如何如何。那么这些在双对数坐标下的这种人的直观概念到底是怎么一回事呢？</p>
+<p>说是到底去问是怎么一回事，主要是我们观察到了数据在双对数坐标和线性坐标下的特征是不一样的，双对数坐标中的“斜率”还有“幅值”在线性坐标中找不到很直观的对应，那么我们平常所说的对数坐标中的“斜率”和“幅值”到底对应的线性坐标中的什么曲线特征？</p>
+<p>首先我们要理清在双对数坐标中，我们所说的“斜率”是没有看坐标轴所说的，其实我们下意识的把坐标轴当成了线性坐标，这个当然和线性代数中向量的基矢有关系，但是我想从更直观的角度去说这件事情。那么我们下意识下所说的“斜率”下的线性坐标对应的是什么呢？仔细观察一下我们会发现，这个线性坐标对应的是双对数坐标横坐标的<span
+class="math inline">\(10^{-4},10^{-3},10^{-2},10^{-1},10^{0},10^{1},10^{2}\)</span>中的指数项，即<span
+class="math inline">\(-4,-3,-2,-1,0,1,2\)</span>，然后纵坐标<span
+class="math inline">\(10^{-5},10^{0},10^{5}\)</span>，对应的线性坐标是<span
+class="math inline">\(-5,0,5\)</span>，他们之间的关系是log的。以10为底的指数实际上为真实数据的值（设为<span
+class="math inline">\(x_{real},y_{real}\)</span>，真实线性坐标下的斜率和幅值设为<span
+class="math inline">\(k_{real\_linear},b_{real\_linear}\)</span>），而其指数我们可以看成在双对数下的线性坐标（“斜率”意义下的线性坐标，在线性代数中相当于我们替换了矢量的基矢）（设为<span
+class="math inline">\(x_{\log\_linear},y_{\log\_linear}\)</span>，而“斜率”为<span
+class="math inline">\(k_{\log\_linear},b_{\log\_linear}\)</span>）。则上述变量之间的关系可以表示如下：</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+x_{\log\_linear}&amp;=\log(x_{real})\\
+y_{\log\_linear}&amp;=\log(y_{real})\\
+y_{\log\_linear}&amp;=k_{\log\_linear}x_{\log\_linear}+b_{\log\_linear}\\
+\Rightarrow
+\log(y_{real})&amp;=k_{\log\_linear}\log(x_{real})+\log10^{b_{\log\_linear}}\\
+\Rightarrow
+\log(y_{real})&amp;=\log(x_{real})^{k_{\log\_linear}}+\log10^{b_{\log\_linear}}\\
+\Rightarrow
+\log(y_{real})&amp;=\log((x_{real})^{k_{\log\_linear}}10^{b_{\log\_linear}})\\
+\Rightarrow
+y_{real}&amp;=(x_{real})^{k_{\log\_linear}}10^{b_{\log\_linear}}
+\end{aligned}
+\end{equation}
+\]</span></p>
+<p>通过上述的公式推导，我们可以很清楚的知道，在双对数坐标中我们所直观看到的“斜率（<span
+class="math inline">\(k_{log\_linear}\)</span>）”和“幅值（<span
+class="math inline">\(b_{log\_linear}\)</span>）”对应真线性坐标下的指数和系数（“真实斜率”）。</p>
+<p>这样我们就得到了双对数坐标下“斜率”和“幅值”的所谓实际含义。</p>
+]]></content>
+      <categories>
+        <category>绘图</category>
+      </categories>
+      <tags>
+        <tag>log-log</tag>
       </tags>
   </entry>
   <entry>
