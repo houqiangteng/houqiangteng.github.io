@@ -21,28 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"teengad.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":240},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="假设我们有一组微分之后的结果： \[ a+h \tag{1} \] 其中\(a\)是实数，\(h\)为无穷小量，则一般情况下我们可以忽略掉h使其变为：">
+    <meta name="description" content="先说大家都知道的：假定长方形的边长分别为实数\(a\)，\(b\)，则面积可以表示为： \[ S&#x3D;ab.\tag{1} \] 但是长方形的面积为何如此定义呢？这是人为定义？还是纯天然的？哪来的？ 首先从历史角度来说，这是人通过实践的经验得来的。我们可以考虑这样的场景：把很多物体按照行和列排列，则最终物体的总数就是行数乘上列数，如下图的南瓜：  对于离散的数量来说，这种定义确实是足以示">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="数学算术中无穷小量的不完备性">
-<meta property="og:url" content="https://teengad.github.io/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/index.html">
+<meta property="og:title" content="长方形面积公式的由来">
+<meta property="og:url" content="https://teengad.github.io/2022/04/13/%E9%95%BF%E6%96%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%9A%84%E7%94%B1%E6%9D%A5/index.html">
 <meta property="og:site_name" content="我不懂">
-<meta property="og:description" content="假设我们有一组微分之后的结果： \[ a+h \tag{1} \] 其中\(a\)是实数，\(h\)为无穷小量，则一般情况下我们可以忽略掉h使其变为：">
+<meta property="og:description" content="先说大家都知道的：假定长方形的边长分别为实数\(a\)，\(b\)，则面积可以表示为： \[ S&#x3D;ab.\tag{1} \] 但是长方形的面积为何如此定义呢？这是人为定义？还是纯天然的？哪来的？ 首先从历史角度来说，这是人通过实践的经验得来的。我们可以考虑这样的场景：把很多物体按照行和列排列，则最终物体的总数就是行数乘上列数，如下图的南瓜：  对于离散的数量来说，这种定义确实是足以示">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-10T18:52:25.000Z">
-<meta property="article:modified_time" content="2022-04-11T16:19:34.930Z">
+<meta property="article:published_time" content="2022-04-13T12:46:25.000Z">
+<meta property="article:modified_time" content="2022-04-14T19:28:52.532Z">
 <meta property="article:author" content="Teeng">
 <meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://teengad.github.io/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/">
+<link rel="canonical" href="https://teengad.github.io/2022/04/13/%E9%95%BF%E6%96%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%9A%84%E7%94%B1%E6%9D%A5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://teengad.github.io/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/","path":"2022/04/11/数学算术中无穷小量的不完备性/","title":"数学算术中无穷小量的不完备性"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://teengad.github.io/2022/04/13/%E9%95%BF%E6%96%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%9A%84%E7%94%B1%E6%9D%A5/","path":"2022/04/13/长方形面积公式的由来/","title":"长方形面积公式的由来"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>数学算术中无穷小量的不完备性 | 我不懂</title>
+<title>长方形面积公式的由来 | 我不懂</title>
   
 
 
@@ -243,7 +243,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://teengad.github.io/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/">
+    <link itemprop="mainEntityOfPage" href="https://teengad.github.io/2022/04/13/%E9%95%BF%E6%96%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%9A%84%E7%94%B1%E6%9D%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ouyou.jpg">
@@ -256,12 +256,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="数学算术中无穷小量的不完备性 | 我不懂">
+      <meta itemprop="name" content="长方形面积公式的由来 | 我不懂">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数学算术中无穷小量的不完备性
+          长方形面积公式的由来
         </h1>
 
         <div class="post-meta-container">
@@ -272,14 +272,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-04-11 02:52:25" itemprop="dateCreated datePublished" datetime="2022-04-11T02:52:25+08:00">2022-04-11</time>
+      <time title="创建时间：2022-04-13 20:46:25" itemprop="dateCreated datePublished" datetime="2022-04-13T20:46:25+08:00">2022-04-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-12 00:19:34" itemprop="dateModified" datetime="2022-04-12T00:19:34+08:00">2022-04-12</time>
+      <time title="修改时间：2022-04-15 03:28:52" itemprop="dateModified" datetime="2022-04-15T03:28:52+08:00">2022-04-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,14 +298,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>426</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -316,35 +316,84 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>假设我们有一组微分之后的结果： <span class="math display">\[
-a+h \tag{1}
-\]</span><br />
-其中<span class="math inline">\(a\)</span>是实数，<span
-class="math inline">\(h\)</span>为无穷小量，则一般情况下我们可以忽略掉h使其变为：<span id="more"></span>
-<span class="math display">\[
-a+h\rightarrow a\tag{2}
+        <p>先说大家都知道的：假定长方形的边长分别为实数<span
+class="math inline">\(a\)</span>，<span
+class="math inline">\(b\)</span>，则面积可以表示为：</p>
+<p><span class="math display">\[
+S=ab.\tag{1}
 \]</span></p>
-<ol type="1">
-<li>当我们拿着上述结果<span
-class="math inline">\((2)\)</span>交给另一个人去计算： <span
+<p>但是长方形的面积为何如此定义呢？这是人为定义？还是纯天然的？哪来的？
+首先从历史角度来说，这是人通过实践的经验得来的。我们可以考虑这样的场景：把很多物体按照行和列排列，则最终物体的总数就是行数乘上列数，如下图的南瓜：
+<img
+src="https://img-blog.csdnimg.cn/e8e74a31052b4f19a11acb1ac1938b17.png?x_16#pic_center%20=300x300"
+alt="南瓜" /></p>
+<p>对于离散的数量来说，这种定义确实是足以示性这种排列的规律。但问题是：这种离散的计数是否能够适用于连续的实数中去呢？当然我们可以继续把连续的图形划分成小格子，然后数格子的数量，但是前提是格子的边长必须是单位长度，而总的边长能够被这个单位长度整除，那么不整除的情况呢？其实这个思考过程就是一个把面积的定义从有理数域推向实数域的过程。这就不得不涉及到现代数学的很多概念。
+下面我们从现代数学的角度再来看这个问题。
+首先我们来梳理一下在我们传统的印象中，我们所需要的面积应该满足哪些约束条件，或者说它应该具备哪些我们想要的基本特点：
+1.
+全等的图形面积应该都相等（平面平移对称性），而长和宽对应相等的长方形是全等的，所以面积是两个边长的函数<span
+class="math inline">\(f(a,b)\)</span>； 2.
+由于两条边具有交换对称性，也就有： <span class="math display">\[
+f(a,b)=f(b,a)\tag{2}
+\]</span> 3.
+规定面积是恒正的函数，不存在面积为负的情况，边长不为0时面积不为0； 4.
+面积应该具有可加性，两个图形拼起来的面积是两者之和。假设两个长方形的某一边相等（此处为<span
+class="math inline">\(b\)</span>），则两者可以重新拼接成一个长方形，即：</p>
+<p><span class="math display">\[
+f(a_{1}+a_{2},b)=f(a_{1},b)+f(a_{2},b)\tag{3}
+\]</span> 由此可以看出<span class="math inline">\(f\)</span>关于<span
+class="math inline">\(a\)</span>单调递增；</p>
+<ol start="5" type="1">
+<li>假设存在正整数<span class="math inline">\(q_{1}\)</span>，<span
+class="math inline">\(q_{2}\)</span>，则由<span
+class="math inline">\((3)\)</span>式有： <span class="math display">\[
+\begin{aligned}
+f(a,b)&amp;=q_{1}f(\frac{1}{q_{1}}a,b)\\\tag{4}
+\Rightarrow\frac{1}{q_{1}}f(a,b)&amp;=f(\frac{1}{q_{1}} a,b)
+\end{aligned}
+\]</span> 当有<span
+class="math inline">\(q_{2}\)</span>个上式相加时，则上式变为： <span
 class="math display">\[
-\frac{a-a}{h}\tag{3}
-\]</span><br />
-时，<span class="math inline">\(h\)</span>为无穷小量，第一个<span
-class="math inline">\(a\)</span>为前式得到的<span
-class="math inline">\(a\)</span>，则上式可以简化为： <span
+\frac{q_{2}}{q_{1}}f(a,b)=f(\frac{q_{2}}{q_{1}} a,b)\tag{5}
+\]</span> 此时令<span
+class="math inline">\(q=\frac{q_{2}}{q_{1}}\)</span>，则<span
+class="math inline">\((3)\)</span>中的公式可以写为有理数的形式： <span
 class="math display">\[
-\frac{a-a}{h}=\frac{0}{h}\rightarrow0\tag{4}
+qf(a,b)=f(qa,b)\tag{6}
 \]</span></li>
-<li>当我们拿着化简之前的结果<span
-class="math inline">\((1)\)</span>式交给别人去计算时，<span
-class="math inline">\((3)\)</span>式可简化为： <span
+<li><span class="math inline">\(f(a,b)\)</span>在<span
+class="math inline">\(a\)</span>趋向于某个实数<span
+class="math inline">\(a_{1}\)</span>时极限为<span
+class="math inline">\(f(a_{1},b)\)</span>，即<span
+class="math inline">\(f(a,b)\)</span>可以任意接近于<span
+class="math inline">\(f(a_{1},b)\)</span>，所以<span
+class="math inline">\(f\)</span>关于<span
+class="math inline">\(a\)</span>连续，于是可以把<span
+class="math inline">\((6)\)</span>式中的<span
+class="math inline">\(q\)</span>推广到任意实数<span
+class="math inline">\(u\)</span>： <span class="math display">\[
+uf(a,b) = f(ua,b)\tag{7}
+\]</span></li>
+<li>将上式<span class="math inline">\(u=a\)</span>，<span
+class="math inline">\(a=1\)</span>，得到 <span class="math display">\[
+f(a,b)=af(1,b)\tag{8}
+\]</span> 同理，根据<span class="math inline">\((2)\)</span>式： <span
 class="math display">\[
-\frac{a+h-a}{h}=\frac{h}{h}\rightarrow1\tag{5}
-\]</span> 显然<span class="math inline">\((3)\)</span>和<span
-class="math inline">\((5)\)</span>式进行着相同的计算，在不同的取值近似下得出了完全不相同的结果，这是无穷小量带来的算术矛盾。需要验证在现实中我们是否经常遇到这种矛盾，这如同一个隐患一样藏在某处。</li>
+f(a,b) = bf(a,1)\tag{9}
+\]</span></li>
+<li>因此： <span class="math display">\[
+f(a,b)=abf(1,1)\tag{10}
+\]</span> 由上可以看出面积必须是<span
+class="math inline">\(ab\)</span>的常数倍，为了使用方便可以规定<span
+class="math inline">\(f(1,1)=1\)</span>，当然也可以规定为其他数字。因此得到最终长方形的面积公式：
+<span class="math display">\[
+S=f(a,b)=ab.\tag{11}
+\]</span></li>
 </ol>
-<p>​</p>
+<p>由上述推导可以知道，传统意义上的长方形的面积公式可以根据几个基本原理（约束）推论得到。
+值得注意的是，我们也可以用同样的方法得到体积公式，此时需要注意体积公式和面积公式的常数项要一致才行，所以从面积推广到<span
+class="math inline">\(n\)</span>维体积的定义需要前后一致，否则会出现矛盾。
+在上述推导中主要运用的是面积的测度性质。此处并未讨论上述坐标得到的长度是在什么基向量下表示的（只是用到了平面的平移对称性），也就还没有涉及到空间的基向量的变换。如果推广到欧式空间，则还需要内积空间的性质。面积恒正可加是测度性质，面积在正交变换下保持不变是欧式空间的内积空间性质。</p>
 
     </div>
 
@@ -379,13 +428,10 @@ class="math inline">\((5)\)</span>式进行着相同的计算，在不同的取�
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/04/13/%E9%95%BF%E6%96%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%9A%84%E7%94%B1%E6%9D%A5/" rel="prev" title="长方形面积公式的由来">
-                  <i class="fa fa-chevron-left"></i> 长方形面积公式的由来
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/04/05/%E5%88%A9%E7%94%A8Log%20Binning%E7%BB%98%E5%9B%BE%E6%8B%9F%E5%90%88%E5%8F%82%E6%95%B0/" rel="next" title="利用Log Binning绘图拟合参数">
-                  利用Log Binning绘图拟合参数 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/" rel="next" title="数学算术中无穷小量的不完备性">
+                  数学算术中无穷小量的不完备性 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -412,11 +458,11 @@ class="math inline">\((5)\)</span>式进行着相同的计算，在不同的取�
     </label>
     <select class="lang-select" data-canonical="" aria-label="选择语言">
       
-        <option value="zh-CN" data-href="/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/" selected="">
+        <option value="zh-CN" data-href="/2022/04/13/%E9%95%BF%E6%96%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%9A%84%E7%94%B1%E6%9D%A5/" selected="">
           简体中文
         </option>
       
-        <option value="en" data-href="/en/2022/04/11/%E6%95%B0%E5%AD%A6%E7%AE%97%E6%9C%AF%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/" selected="">
+        <option value="en" data-href="/en/2022/04/13/%E9%95%BF%E6%96%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F%E7%9A%84%E7%94%B1%E6%9D%A5/" selected="">
           English
         </option>
       
@@ -479,7 +525,7 @@ class="math inline">\((5)\)</span>式进行着相同的计算，在不同的取�
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"teengad","repo":"blogcomment","client_id":"de6a4a04db581e771c06","client_secret":"99aa37b1dc72d06e94181cbbd01815db648959e3","admin_user":"teengad","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"68db1971923d75186cb4db08e08246cc"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"teengad","repo":"blogcomment","client_id":"de6a4a04db581e771c06","client_secret":"99aa37b1dc72d06e94181cbbd01815db648959e3","admin_user":"teengad","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"f6820230215dbbeaa7e323b0a7ff9246"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
